@@ -12,12 +12,12 @@
 
 ## Backend
 - [ ] Get database (mySQL/MongoDB)
-- [ ] Get Java 11
+- [ ] Get Java 11*
     - [ ] Get project management tool (Gradle) (Optional)
         - Below are dependencies needed:
-            - [ ] Get corresponding database driver dependency
+            - [x] Get corresponding database driver dependency
             - [x] Get Spring Boot (REST) dependency
-            - [ ] Get Hibernate (ORM) dependency
+            - [x] Get Hibernate (ORM) dependency
             - [ ] Spring Security dependency (for later)
             - [ ] Get Java JWT dependency (for later)
     
@@ -34,10 +34,16 @@ Or use IDE Gradle extension to build the project.
 
 If any dependencies are missing from your machine, they should get downloaded when gradle tries to build the project.
 
+In order to run the backend, use the `bootRun` task. ie. `gradle bootRun`
+
 ### Installing Frontend
 Get Node.js either from the website or your favorite package manager.
 
 Install with npm/yarn globally: `@angular/cli`
+
+`npm install -g @angular/cli`
+
+In order to run the front end, use the command: `ng serve --open`.
 
 #### Bootstrap
 ##### Option 1
