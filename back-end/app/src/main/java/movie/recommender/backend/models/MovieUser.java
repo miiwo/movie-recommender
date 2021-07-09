@@ -1,17 +1,14 @@
 package movie.recommender.backend.models;
 
-import javax.persistence.Entity;
+import java.util.List;
+import javax.persistence.Transient;
 
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.Table;
 
-@Entity
-@DynamicUpdate
-@DynamicInsert
-@Table(appliesTo = "user")
 public class MovieUser extends User {
 
+    //@Transient
+    //private List<String> moviesWatched;
+    
     public MovieUser(long id, String email, String password) {
         super(id, email, password);
     }
