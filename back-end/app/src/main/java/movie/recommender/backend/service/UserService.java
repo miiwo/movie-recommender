@@ -6,15 +6,29 @@ import org.springframework.stereotype.Service;
 import movie.recommender.backend.models.User;
 import movie.recommender.backend.repository.UserRepository;
 
+/**
+ * This is the class that provides logic to interacting with a certain
+ * part of the app. For this, a it currently grabs a user by their ID,
+ * but more practical methods would be:
+ *   - resetPassword(long userID)
+ *   - createUser(String name, String password)
+ *   - verifyUser (String name, String password)
+ */
 @Service
 public class UserService {
 
     @Autowired
     private UserRepository userRepository;
 
-    public void getUserById(long id) {
+    /**
+     * Test method to check that the database connection is working
+     * Remove later.
+     * @param id
+     * @return
+     */
+    public String getUserById(long id) {
         User theUser = this.userRepository.findById(id).get();
 
-        System.out.println(theUser.getEmail());
+        return theUser.getEmail();
     }
 }
