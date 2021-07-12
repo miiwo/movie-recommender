@@ -3,6 +3,7 @@ package movie.recommender.backend.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,12 +13,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import movie.recommender.backend.models.Movie;
+import movie.recommender.backend.services.MovieService;
 
 @RestController
 @RequestMapping("/recommendations")
 public class MovieRecommendationController {
 
     private UserService userService;
+    
+    @Autowired
     private MovieService movieService;
 
     /**
