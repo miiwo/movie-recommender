@@ -4,20 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import movie.recommender.backend.service.UserService;
+import movie.recommender.backend.service.QuestionnaireService;
 
 
-/**
- * Controller classes will hold the url paths for the app to be accessed by, and
- * the business facing logic to fulfilling a client/consumer's request.
- * These kind of classes should only hold service calls.
- */
 @RestController
-public class UserController {
+@RequestMapping("/question")
+public class QuestionnaireController {
 
     @Autowired
-    private UserService us;
+    private QuestionnaireService qs;
 
     /**
      * This is mapping to the root path, or localhost:8080/
@@ -25,7 +22,7 @@ public class UserController {
      */
     @GetMapping("/")
     public ResponseEntity<String> testEndpoint() {
-        return ResponseEntity.ok(us.getUserById(1l));
+        return ResponseEntity.ok(qs.getMovieById(1l));
     }
 
 }

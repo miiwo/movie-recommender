@@ -28,7 +28,7 @@ public class App {
     @Bean
     public CommandLineRunner cmlr(ApplicationContext ctx) {
         return args -> {
-            System.out.println(ur.findById(1l).get().getEmail());
+            System.out.println("hello");
         };
     }
 }
