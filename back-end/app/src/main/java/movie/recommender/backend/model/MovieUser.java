@@ -5,6 +5,7 @@ import javax.persistence.Table;
 
 /**
  * Holds the table object that maps the relationship between a user and a movie watched
+ * TODO: Make the table in sql
  */
 @Entity
 @Table(name="movies_watched")

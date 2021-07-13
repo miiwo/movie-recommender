@@ -5,6 +5,7 @@ import javax.persistence.Table;
 
 /**
  * Holds the table object that maps the relation between movie and mood.
+ * TODO: Make the table in sql
  */
 @Entity
 @Table(name = "movie_mood")
