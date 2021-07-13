@@ -37,15 +37,15 @@ public class MovieRecommendationController {
         recommendations = movieService.getMoviesFor(mood, 5); // Grab 5 for now
 
         // Request param User? 
-        if (user.isPresent()) {
-            // Verify user
-            if(userService.verifyUser(user.get())) {
-                // Get list of movies a user has watched (Discuss whether this should be in User or Movie)
-                List<Movie> userWatchedList = userService.getMoviesFor(user.get());
-                // Filter out movies / get more if client has watched some already
-                filterMovieList(recommendations, userWatchedList);
-            }
-        }
+        // if (user.isPresent()) {
+        //     // Verify user
+        //     if(userService.verifyUser(user.get())) {
+        //         // Get list of movies a user has watched (Discuss whether this should be in User or Movie)
+        //         List<Movie> userWatchedList = userService.getMoviesFor(user.get());
+        //         // Filter out movies / get more if client has watched some already
+        //         filterMovieList(recommendations, userWatchedList);
+        //     }
+        // }
         
         // Return the recommendations
         return ResponseEntity.ok(recommendations);
