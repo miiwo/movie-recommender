@@ -1,4 +1,4 @@
-package movie.recommender.backend.controllers;
+package movie.recommender.backend.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import movie.recommender.backend.models.Movie;
-import movie.recommender.backend.services.MovieService;
+import movie.recommender.backend.model.dto.Movie;
+import movie.recommender.backend.service.MovieService;
+import movie.recommender.backend.service.UserService;
 
 @RestController
 @RequestMapping("/recommendations")
@@ -41,9 +41,9 @@ public class MovieRecommendationController {
             // Verify user
             if(userService.verifyUser(user.get())) {
                 // Get list of movies a user has watched (Discuss whether this should be in User or Movie)
-                List<Movie> userWatchList = userService.getMoviesFor(user.get());
+                List<Movie> userWatchedList = userService.getMoviesFor(user.get());
                 // Filter out movies / get more if client has watched some already
-                filterMovieList(recommendations, alreadyWatchedList);
+                filterMovieList(recommendations, userWatchedList);
             }
         }
         
