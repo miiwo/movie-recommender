@@ -11,4 +11,6 @@ import javax.persistence.Table;
 public class MovieMood {
     private long movieID;
     private long happyScore, sadScore, funnyScore;
+
+    public long getId() { return this.movieID; }
 }
