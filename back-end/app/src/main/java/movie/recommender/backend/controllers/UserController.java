@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import movie.recommender.backend.service.UserService;
 import movie.recommender.backend.models.User;
@@ -24,6 +25,7 @@ public class UserController {
 
     /**
      * This is mapping to the root path, or localhost:8080/
+     *
      * @return
      */
     @GetMapping("/")
@@ -34,6 +36,15 @@ public class UserController {
     @PostMapping("/")
     public ResponseEntity<String> createUser(@RequestBody User user) {
         if (us.createUser(user.getEmail(), user.getPassword())) return ResponseEntity.ok("User successfully created");
+        System.out.println("I got here");
         return ResponseEntity.badRequest().body("User was not created");
     }
+
+//    @PostMapping("/user")
+//    public ResponseEntity<String> createUser(@RequestParam("email") String email, @RequestParam("password") String password) {
+//        System.out.println("I got here");
+//        if (us.createUser(email, password)) return ResponseEntity.ok("User successfully created");
+//        System.out.println("I got here too");
+//        return ResponseEntity.badRequest().body("User was not created");
+//    }
 }
