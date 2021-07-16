@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import movie.recommender.backend.service.UserService;
+import movie.recommender.backend.models.User;
 
 
 /**
@@ -28,4 +31,9 @@ public class UserController {
         return ResponseEntity.ok(us.getUserById(1l));
     }
 
+    @PostMapping("/")
+    public ResponseEntity<String> createUser(@RequestBody User user) {
+        if (us.createUser(user.getEmail(), user.getPassword())) return ResponseEntity.ok("User successfully created");
+        return ResponseEntity.badRequest().body("User was not created");
+    }
 }

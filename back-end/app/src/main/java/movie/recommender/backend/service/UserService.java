@@ -31,4 +31,23 @@ public class UserService {
 
         return theUser.getEmail();
     }
+
+    public boolean verifyUser(long id, String password) {
+        if (!this.userRepository.findById(id).isPresent()) return false;
+
+        User user = this.userRepository.findById(id).get();
+        if (password == user.getPassword()) return true;
+        return false;
+    }
+
+    public boolean createUser(String email, String password) {
+        // generate id
+        long id = 45;
+
+        if (this.userRepository.findById(id).isPresent()) return false;
+
+        User user = new User(id, email, password);
+        this.userRepository.saveAndFlush(user);
+        return true;
+    }
 }
