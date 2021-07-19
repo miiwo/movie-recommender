@@ -42,11 +42,9 @@ public class UserService {
 
     public boolean createUser(String email, String password) {
         // generate id
-        long id = 45;
+        //if (this.userRepository.findById(id).isPresent()) return false;
 
-        if (this.userRepository.findById(id).isPresent()) return false;
-
-        User user = new User(id, email, password);
+        User user = new User(email, password);
         this.userRepository.saveAndFlush(user);
         return true;
     }

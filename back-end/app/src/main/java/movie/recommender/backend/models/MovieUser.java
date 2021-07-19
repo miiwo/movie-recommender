@@ -9,8 +9,8 @@ public class MovieUser extends User {
     //@Transient
     //private List<String> moviesWatched;
     
-    public MovieUser(long id, String email, String password) {
-        super(id, email, password);
+    public MovieUser(String email, String password) {
+        super(email, password);
     }
     
 }

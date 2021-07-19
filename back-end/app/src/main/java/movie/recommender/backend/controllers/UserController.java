@@ -29,13 +29,15 @@ public class UserController {
      * @return
      */
     @GetMapping("/")
-    public ResponseEntity<String> testEndpoint() {
-        return ResponseEntity.ok(us.getUserById(1l));
+    public ResponseEntity<String> testEndpoint(long id) {
+        return ResponseEntity.ok(us.getUserById(id));
     }
 
     @PostMapping("/")
     public ResponseEntity<String> createUser(@RequestBody User user) {
-        if (us.createUser(user.getEmail(), user.getPassword())) return ResponseEntity.ok("User successfully created");
+        if (us.createUser(user.getEmail(), user.getPassword())) {
+            return ResponseEntity.ok("User added");
+        }
         System.out.println("I got here");
         return ResponseEntity.badRequest().body("User was not created");
     }
