@@ -1,5 +1,6 @@
 package movie.recommender.backend.service;
 
+import movie.recommender.backend.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +15,23 @@ public class QuestionnaireService {
     private MovieRepository movieRepository;
 
 
-    public String getMovieById(long id) {
-        Movie theMovie = this.movieRepository.findById(id).get();
+    public Movie getMovieById(long id) {
+        return this.movieRepository.findById(id).get();
+    }
 
-        return theMovie.getName();
+    public boolean createMovie(String name, String description, String imdbLink) {
+        Movie movie = new Movie();
+        movie.setName(name);
+        movie.setDescription(description);
+        movie.setImdbLink(imdbLink);
+        this.movieRepository.saveAndFlush(movie);
+        return true;
+    }
+
+    public void updateMovieScores(long id, int happyScore, int sadScore, int funnyScore){
+        Movie movie = getMovieById(id);
+        if(happyScore>-1) movie.updateHappyScore(happyScore);
+        if(sadScore>-1) movie.updateSadScore(sadScore);
+        if(funnyScore>-1) movie.updateFunnyScore(funnyScore);
     }
 }
