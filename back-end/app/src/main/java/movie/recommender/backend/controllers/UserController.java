@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import movie.recommender.backend.service.UserService;
 import movie.recommender.backend.models.User;
 
@@ -18,6 +17,7 @@ import movie.recommender.backend.models.User;
  * These kind of classes should only hold service calls.
  */
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired

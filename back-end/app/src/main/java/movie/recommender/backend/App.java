@@ -28,7 +28,7 @@ public class App {
     @Bean
     public CommandLineRunner cmlr(ApplicationContext ctx) {
         return args -> {
-            System.out.println("running");
+            System.out.println("hello");
         };
     }
 }
