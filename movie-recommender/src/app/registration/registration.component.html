@@ -1,9 +1,9 @@
 
 <h1>Registration</h1>
 
-<form (ngSubmit)="registerUser()">
-  Email: <input type="email">
-  Password: <input type="password">
+<form (ngSubmit)="registerUser()" [formGroup]="form">
+  Email: <input type="email" [formControl]="email">
+  Password: <input type="password" [formControl]="password">
   <button type="submit">Register</button>
 </form>
 

@@ -12,5 +12,4 @@ public class MovieUser extends User {
     public MovieUser(String email, String password) {
         super(email, password);
     }
-    
 }

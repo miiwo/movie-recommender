@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 
 import { UserService } from '../shared/user.service'
+import { User } from '../models/user'
 
 @Component({
   selector: 'app-registration',
@@ -35,6 +36,16 @@ export class RegistrationComponent implements OnInit {
   }
 
   registerUser() {
-    this.us.registerUser(this.form.value)
+    let user:User = {
+      id: 3,
+      email: this.form.value.email,
+      password: this.form.value.password
+    }
+    this.us.registerUser(user).subscribe(data => {
+      console.log('it worked')
+    },
+    error => {
+      console.log('it didnt work')
+    })
   }
 }
