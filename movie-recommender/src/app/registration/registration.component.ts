@@ -10,12 +10,12 @@ import { UserService } from '../shared/user.service'
 })
 export class RegistrationComponent implements OnInit {
 
-  form:FormGroup
+  form!: FormGroup
 
-  email:FormControl
-  password:FormControl
+  email!: FormControl
+  password!: FormControl
 
-  constructor(private us:UserService) { }
+  constructor(private us: UserService) { }
 
   ngOnInit(): void {
     this.createControl()
