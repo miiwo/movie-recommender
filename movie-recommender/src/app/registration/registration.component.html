@@ -2,23 +2,21 @@
   <mat-card id="registration-card" class="mat-elevation-z8">
     <h1 class="mat-headline registration">Registration</h1>
 
-    <form (ngSubmit)="registerUser()" fxLayout="column">
+    <form (ngSubmit)="registerUser()" [formGroup]="form" fxLayout="column">
       <label class="registration">Email:</label>
       <mat-form-field appearance="fill" color="accent">
         <mat-label class="registration">Email</mat-label>
-        <input matInput type="email">
+        <input matInput type="email" [formControl]="email">
       </mat-form-field>
       
       <label class="registration">Password:</label>
       <mat-form-field appearance="fill">
         <mat-label class="registration">Password</mat-label>
-        <input matInput type="password">
+        <input matInput type="password" [formControl]="password">
       </mat-form-field>
       
       <button mat-raised-button type="submit" class="registration register-button">Register</button>
     </form>
   </mat-card>
 </div>
-
-
 
