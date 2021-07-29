@@ -1,10 +1,13 @@
-To get git to stop telling you that, you've modified a local file, but don't want to push it up. (ie. application.properties)
+# Running the backend
+Type into the command line: `gradle bootRun` or `./gradlew bootRun`.
 
-Use the command: `git update-index --skip-worktree`
+Use `./gradlew bootRun` if you have a version of Gradle that is not `7.1` exactly.
 
-This is used when you want to modify files managed by git locally, but do not want git to manage that change.
+# Don't grab application.properties after the first go
+Once cloned, run this command from the movie-recommender directory: `git update-index --skip-worktree back-end/app/src/main/resources/application.properties`
 
-The command: `git update-index --assume-unchanged`
+This will make sure Git will not track any changes you make to the application.properties file thereafter.
+And any pushes made to the source code will not include your modified application.properties file with db user+pass.
 
-is used to ignore files that do not need to change locally (or should not change).
-This is useful for ignoring unecessary files.
+# Big Note
+Remember to change the user/pass combo in application.properties, and don't push the file again with your user/pass combo.
