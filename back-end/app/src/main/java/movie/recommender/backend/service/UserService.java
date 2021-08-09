@@ -1,5 +1,7 @@
 package movie.recommender.backend.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,10 +44,19 @@ public class UserService {
 
     public boolean createUser(String email, String password) {
         // generate id
-        //if (this.userRepository.findById(id).isPresent()) return false;
+        if (this.userRepository.findByEmail(email).isPresent()) return false;
 
         User user = new User(email, password);
         this.userRepository.saveAndFlush(user);
         return true;
+    }
+
+    /**
+     * Grabs movie ids from the user that they have watched.
+     * @param user
+     * @return
+     */
+    public List<Integer> getMoviesFor(User user) {
+        return List.of(1);
     }
 }

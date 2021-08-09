@@ -19,11 +19,14 @@ public class MovieService {
      * Get a certain number of movies for a specified mood.
      * Consider renaming this method to include/hint at it gives recommendations.
      * Maybe rename this class.
+     * 
+     * Grabs a list of movie ids
+     * 
      * @param mood
      * @param numMovies
      * @return
      */
-    public List<Movie> getMoviesFor(String mood, int numMovies) {
+    public List<Integer> getMoviesFor(String mood, int numMovies) {
         // Grab movies from repo
         List<MovieMood> moodMovies = movieMoodRepository.findAllMoviesThatAre(mood);
 
@@ -37,7 +40,8 @@ public class MovieService {
         }
 
         // Return list
-        return movies;
+        //return movies;
+        return List.of(1);
     }
 
     /**
@@ -47,5 +51,18 @@ public class MovieService {
      */
     private Movie grabMovieDetails(long movieId) {
         return new Movie();
+    }
+
+    /**
+     * Takes a list of movie ID integers and creates a list of
+     * Movie objects.
+     * 
+     * This method calls the Movie Database entirely
+     * 
+     * @param movieIDList
+     * @return
+     */
+    public List<Movie> buildMoviesOn(List<Integer> movieIDList) {
+        return List.of(new Movie());
     }
 }
