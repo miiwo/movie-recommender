@@ -8,8 +8,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import movie.recommender.backend.repository.UserRepository;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@ComponentScan("movie")
+@EnableJpaRepositories("movie.recommender.backend.repository")
 public class App {
 
     @Autowired
