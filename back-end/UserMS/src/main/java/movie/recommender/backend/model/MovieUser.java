@@ -1,7 +1,4 @@
-package movie.recommender.backend.models;
-
-import java.util.List;
-import javax.persistence.Transient;
+package movie.recommender.backend.model;
 
 
 public class MovieUser extends User {

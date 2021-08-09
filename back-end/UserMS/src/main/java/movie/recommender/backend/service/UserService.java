@@ -1,10 +1,9 @@
 package movie.recommender.backend.service;
 
+import movie.recommender.backend.model.User;
+import movie.recommender.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import movie.recommender.backend.models.User;
-import movie.recommender.backend.repository.UserRepository;
 
 /**
  * This is the class that provides logic to interacting with a certain

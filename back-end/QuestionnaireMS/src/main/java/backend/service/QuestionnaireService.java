@@ -1,11 +1,10 @@
-package movie.recommender.backend.service;
+package backend.service;
 
-import movie.recommender.backend.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import movie.recommender.backend.models.Movie;
-import movie.recommender.backend.repository.MovieRepository;
+import backend.model.Movie;
+import backend.repository.MovieRepository;
 
 
 @Service

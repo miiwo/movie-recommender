@@ -1,4 +1,4 @@
-package movie.recommender.backend.models;
+package backend.model;
 
 import javax.persistence.*;
 

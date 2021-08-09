@@ -1,10 +1,10 @@
-package movie.recommender.backend.controllers;
+package movie.recommender.backend.controller;
 
+import movie.recommender.backend.model.User;
+import movie.recommender.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import movie.recommender.backend.service.UserService;
-import movie.recommender.backend.models.User;
 
 
 /**

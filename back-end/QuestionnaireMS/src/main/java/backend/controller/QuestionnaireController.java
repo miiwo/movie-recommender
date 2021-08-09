@@ -1,11 +1,11 @@
-package movie.recommender.backend.controllers;
+package backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import movie.recommender.backend.service.QuestionnaireService;
-import movie.recommender.backend.models.Movie;
+import backend.service.QuestionnaireService;
+import backend.model.Movie;
 
 
 @RestController
